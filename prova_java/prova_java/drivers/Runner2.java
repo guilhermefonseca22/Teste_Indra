@@ -8,7 +8,7 @@
 //@CucumberOptions(format = {
 //		
 //		"pretty", "html:target/cucumber", "json:target/cucumber.json"},
-//		tags = {"@cadastro","@login","@adicionarcontas","~@ignore"}, 
+//		tags = {"@pesquisa","@login","@adicionarcontas","~@ignore"}, 
 //		features = "src/test/java/Features", 
 //		glue = {"" }, 
 //		monochrome = true, dryRun = false)

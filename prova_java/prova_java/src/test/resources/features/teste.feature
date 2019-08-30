@@ -3,10 +3,11 @@
 Funcionalidade: Prova Indra Java BDD
 
 @testePesquisa
-Esquema do Cenario: Cadastro
+Esquema do Cenario: Pesquisa
     Dado que foi acessado o site "<site>"
     Quando inserir na pesquisa "diretor avatar"
     E clicar em Pesquisar
+   
     Entao valido o resultado da pesquisa do diretor
     E fecho o navegador
     Exemplos:

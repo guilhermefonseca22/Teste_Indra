@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.After;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -19,7 +21,7 @@ public class conta_page {
 	private static String inp_pesquisa = "//*[@id=\"tsf\"]/div[2]/div/div[1]/div/div[1]/input";
 	private static String btn_pesquisa = "//*[@id=\"tsf\"]/div[2]/div/div[2]/div[2]/div/center/input[1]";
 	private static String inp_tela = "btnK";
-	private static String result_result = "resultStats";
+	private static String result_result = "//div[text()='Aproximadamente 10.800.000 resultados']";
 
 	/*
 	 * Metodos Criados
@@ -83,10 +85,12 @@ public class conta_page {
 	 */
 
 	public Boolean validarResultado() throws IOException {
+
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src, new File("C:\\Users\\Brunna\\Documents\\evidencias/Reultado_pesquisa.png"));
 
-		if (driver.findElement(By.id(result_result)).getText() != null) {
+		if (driver.findElement(By.xpath(result_result)).getText() != null) {
+			System.out.println("Resultado da pesquisa encontrado com sucesso");
 			System.out.println("Resultado da pesquisa encontrado com sucesso");
 			return true;
 
@@ -97,6 +101,8 @@ public class conta_page {
 		}
 
 	}
+
+	@After
 
 	/*
 	 * Metodo Para fechar o navegador
