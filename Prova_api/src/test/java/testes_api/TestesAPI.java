@@ -1,6 +1,9 @@
 package testes_api;
 
 import static com.jayway.restassured.RestAssured.*;
+
+
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import com.jayway.restassured.RestAssured;
@@ -15,23 +18,17 @@ public class TestesAPI {
 
 	
 	@Test
-	 public void consultarUrl()
-	 {
-	     RestAssured.baseURI  = "https://jsonplaceholder.typicode.com/todos/1";
-	 
-	     Response res = given()
-	    	     .contentType("application/json").
-	    	     body("{\"title\":\"delectus aut autem\"}").
-	    	        when().
-	    	        post("");
-	    	 
-	    	     String body = res.getBody().asString();
-	    	     System.out.println(body);
-	
-	
-	
+	public void deveVerificaPrimeiroNivel(){
+		
+	given()
+	.when()
+	.get("https://jsonplaceholder.typicode.com/todos/1")
+	.then()
+	.statusCode(200)
+	.body("id", Matchers.is(1))
+	;
 
-	 }
+}
 	
 }
 
